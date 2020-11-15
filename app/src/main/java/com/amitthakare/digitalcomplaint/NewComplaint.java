@@ -86,10 +86,21 @@ public class NewComplaint extends AppCompatActivity implements AdapterView.OnIte
                         {
                             fullName.setText(value.getString("Full_Name"));
                             mobileNo.setText(value.getString("Mobile_No"));
-                            fullName.setClickable(false);
-                            mobileNo.setClickable(false);
+
                             fullName.setEnabled(false);
                             mobileNo.setEnabled(false);
+
+                            if (Variables.LOCALITY != null)
+                            {
+                                city.setText(Variables.LOCALITY);
+                                city.setEnabled(false);
+                            }
+
+                            if (Variables.ADDRESSLINE != null)
+                            {
+                                address.setText(Variables.ADDRESSLINE);
+                            }
+
                         }
                     }
                 });
@@ -251,6 +262,7 @@ public class NewComplaint extends AppCompatActivity implements AdapterView.OnIte
         complaintData.put("City",city.getText().toString());
         complaintData.put("Description",description.getText().toString());
         complaintData.put("Status","Submitted");
+
 
         DatabaseReference databaseReference = firebaseDatabase.getReference("Complaints").child(spinnerOption).child(firebaseAuth.getCurrentUser().getUid());
         databaseReference.setValue(complaintData).addOnCompleteListener(new OnCompleteListener<Void>() {

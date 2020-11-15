@@ -52,6 +52,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="20dp"
+                android:inputType="textPersonName"
                 android:layout_marginEnd="20dp"
                 android:background="@drawable/edittext_back_simple"
                 android:hint="Full Name"
@@ -68,6 +69,7 @@
                 android:background="@drawable/edittext_back_simple"
                 android:hint="Mobile No"
                 android:paddingStart="15dp"
+                android:inputType="phone"
                 android:textColor="@color/black" />
 
             <Spinner
@@ -85,6 +87,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="20dp"
+                android:inputType="textMultiLine"
                 android:layout_marginEnd="20dp"
                 android:background="@drawable/edittext_back_simple"
                 android:hint="Address ( Location )"
@@ -97,6 +100,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="20dp"
+                android:inputType="text"
                 android:layout_marginEnd="20dp"
                 android:background="@drawable/edittext_back_simple"
                 android:hint="City"
