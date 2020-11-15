@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="#ffffff"
+    android:layout_height="match_parent"
+    tools:context=".NewComplaint">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/toolbar_back"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/toolbar_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingEnd="10dp"
+                android:src="@drawable/ic_baseline_arrow_back_24" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Register Complaint"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+        </androidx.appcompat.widget.Toolbar>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+            <EditText
+                android:id="@+id/fullnameEditTextNC"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/edittext_back_simple"
+                android:hint="Full Name"
+                android:paddingStart="15dp"
+                android:textColor="@color/black" />
+
+            <EditText
+                android:id="@+id/mobileEditTextNC"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/edittext_back_simple"
+                android:hint="Mobile No"
+                android:paddingStart="15dp"
+                android:textColor="@color/black" />
+
+            <Spinner
+                android:id="@+id/toDepartmentSpinnerNC"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp" />
+
+
+            <EditText
+                android:id="@+id/addressEditTextNC"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/edittext_back_simple"
+                android:hint="Address ( Location )"
+                android:paddingStart="15dp"
+                android:textColor="@color/black" />
+
+            <EditText
+                android:id="@+id/cityEditTextNC"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/edittext_back_simple"
+                android:hint="City"
+                android:paddingStart="15dp"
+                android:textColor="@color/black" />
+
+            <EditText
+                android:id="@+id/descriptionEditTextNC"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/edittext_back_simple"
+                android:hint="Description"
+                android:inputType="textMultiLine"
+                android:paddingStart="15dp"
+                android:textColor="@color/black" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/uploadImgBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="15dp"
+                    android:text="Upload Picture" />
+
+                <TextView
+                    android:id="@+id/uploadTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Not Selected"
+                    android:textColor="@color/black" />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/submitComplaintBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:background="@color/blue"
+                android:text="Submit Complaint"
+                android:textColor="@color/white"
+                android:textSize="24sp" />
+
+
+        </LinearLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

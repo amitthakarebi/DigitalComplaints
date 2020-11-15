@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".EmergencyServices">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/toolbar_back"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/toolbar_back_emergency"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingEnd="10dp"
+            android:src="@drawable/ic_baseline_arrow_back_24" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Emergency Services"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+    </androidx.appcompat.widget.Toolbar>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:paddingStart="15dp"
+                android:paddingEnd="15dp"
+                android:textColor="@color/black"
+                android:layout_height="wrap_content"
+                android:text="Police"
+                android:textSize="18sp" />
+
+            <ImageView
+                android:id="@+id/callPolice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="15dp"
+                android:paddingEnd="15dp"
+                android:src="@drawable/mobile_icon" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="15dp"
+                android:textColor="@color/black"
+                android:paddingEnd="15dp"
+                android:text="Ambulance"
+                android:textSize="18sp" />
+
+            <ImageView
+                android:id="@+id/callAmbulance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="15dp"
+                android:paddingEnd="15dp"
+                android:src="@drawable/mobile_icon" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:padding="15dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="15dp"
+                android:textColor="@color/black"
+                android:paddingEnd="15dp"
+                android:text="Fire and Rescue"
+                android:textSize="18sp" />
+
+            <ImageView
+                android:id="@+id/callFire"
+                android:layout_width="wrap_content"
+                android:paddingStart="15dp"
+                android:paddingEnd="15dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/mobile_icon" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:paddingStart="15dp"
+                android:textColor="@color/black"
+                android:paddingEnd="15dp"
+                android:layout_height="wrap_content"
+                android:text="Domestic abuse and Sexual Violence"
+                android:textSize="18sp" />
+
+            <ImageView
+                android:id="@+id/callDomestic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="15dp"
+                android:paddingEnd="15dp"
+                android:src="@drawable/mobile_icon" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="15dp"
+                android:textColor="@color/black"
+                android:paddingEnd="15dp"
+                android:text="Suicide Crisis"
+                android:textSize="18sp" />
+
+            <ImageView
+                android:id="@+id/callSuicide"
+                android:layout_width="wrap_content"
+                android:paddingStart="15dp"
+                android:paddingEnd="15dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/mobile_icon" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:padding="15dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="15dp"
+                android:paddingEnd="15dp"
+                android:textColor="@color/black"
+                android:text="Anti-Poison"
+                android:textSize="18sp" />
+
+            <ImageView
+                android:id="@+id/callAntiPoison"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="15dp"
+                android:paddingEnd="15dp"
+                android:src="@drawable/mobile_icon" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:padding="15dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="15dp"
+                android:textColor="@color/black"
+                android:paddingEnd="15dp"
+                android:text="Damini Pathak"
+                android:textSize="18sp" />
+
+            <ImageView
+                android:id="@+id/callDaminiPathak"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="15dp"
+                android:paddingEnd="15dp"
+                android:src="@drawable/mobile_icon" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/white_back"
+    android:orientation="vertical"
+    tools:context=".OtpVerification">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3.5"
+        android:background="@drawable/blue_back"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="20dp">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/segoeul"
+            android:text="Create\nAccount"
+            android:textColor="@color/white"
+            android:textSize="30sp"
+            android:textStyle="normal" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/digital_complaint_logo" />
+
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            android:paddingTop="15dp">
+
+            <EditText
+                android:id="@+id/editTextMobileOtp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/edittext_back_simple"
+                android:drawableStart="@drawable/mobile_icon"
+                android:drawablePadding="10dp"
+                android:hint="Mobile No"
+                android:inputType="phone"
+                android:paddingStart="10dp"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/sentOtpText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Otp sent successfully!"
+                android:visibility="gone"
+                android:layout_marginTop="10dp"
+                android:textSize="16sp"
+                android:layout_gravity="center"
+                android:textColor="@color/blue"/>
+
+
+            <Button
+                android:id="@+id/sendOtpBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="20dp"
+                android:background="@color/blue"
+                android:text="Send OTP"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/gray"
+                android:layout_marginTop="30dp"
+                />
+
+            <EditText
+                android:id="@+id/editTextOtpOtp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/edittext_back_simple"
+                android:drawableStart="@drawable/password_icon"
+                android:drawablePadding="10dp"
+                android:hint="OTP"
+                android:inputType="number"
+                android:paddingStart="10dp"
+                android:textColor="@color/black" />
+
+            <Button
+                android:id="@+id/verifyOtpBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="20dp"
+                android:background="@color/blue"
+                android:text="Verify OTP"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+</LinearLayout>

@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".AdminViewComplaint">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/toolbar_back"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/toolbar_back_view_complaint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingEnd="10dp"
+            android:src="@drawable/ic_baseline_arrow_back_24" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Complaint"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+    </androidx.appcompat.widget.Toolbar>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/VImage"
+                android:layout_width="300dp"
+                android:layout_height="200dp"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/blue_back" />
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:id="@+id/VFullName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Full Name : "
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:id="@+id/VMobileNo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Full Name : "
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:id="@+id/VLocation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Full Name : "
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:id="@+id/VCity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Full Name : "
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:id="@+id/VDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Full Name : "
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+
+            <LinearLayout
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:textAlignment="center"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginStart="10dp"
+                    android:text="Select The Status :"
+                    android:textColor="@color/black"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/vReadBtn"
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Read"
+                    android:layout_margin="10dp"
+                    android:textAllCaps="false"
+                    android:background="@color/blue"
+                    android:textColor="@color/white"/>
+
+                <Button
+                    android:id="@+id/vProcessingBtn"
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Processing"
+                    android:layout_margin="10dp"
+                    android:textAllCaps="false"
+                    android:background="@color/blue"
+                    android:textColor="@color/white"/>
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/vCompleteBtn"
+                android:layout_width="match_parent"
+                android:layout_margin="10dp"
+                android:layout_height="wrap_content"
+                android:text="Complete"
+                android:background="@color/blue"
+                android:textColor="@color/white"
+                android:textAllCaps="false"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
