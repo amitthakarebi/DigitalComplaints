@@ -29,7 +29,10 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
@@ -68,6 +71,28 @@ public class NewComplaint extends AppCompatActivity implements AdapterView.OnIte
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_complaint);
         initialize();
+        getDataFromFirebase();
+    }
+
+    private void getDataFromFirebase() {
+        firebaseAuth = FirebaseAuth.getInstance();
+        firestore = FirebaseFirestore.getInstance();
+
+        firestore.collection("Users").document(firebaseAuth.getCurrentUser().getUid())
+                .addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
+                    @Override
+                    public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
+                        if (value!=null)
+                        {
+                            fullName.setText(value.getString("Full_Name"));
+                            mobileNo.setText(value.getString("Mobile_No"));
+                            fullName.setClickable(false);
+                            mobileNo.setClickable(false);
+                            fullName.setEnabled(false);
+                            mobileNo.setEnabled(false);
+                        }
+                    }
+                });
     }
 
     private void initialize() {
@@ -88,6 +113,7 @@ public class NewComplaint extends AppCompatActivity implements AdapterView.OnIte
         storageReference = FirebaseStorage.getInstance().getReference();
         currentUser = firebaseAuth.getCurrentUser();
         firebaseDatabase = FirebaseDatabase.getInstance();
+
 
         spinner.setOnItemSelectedListener(this);
         //spinner setting
