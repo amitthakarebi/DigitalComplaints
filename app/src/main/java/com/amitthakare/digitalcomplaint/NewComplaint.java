@@ -6,7 +6,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -38,6 +40,7 @@ import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
+import java.io.ByteArrayOutputStream;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -48,12 +51,13 @@ public class NewComplaint extends AppCompatActivity implements AdapterView.OnIte
     private String[] departmentList = {"Muncipal Council","Ministry of Road Transport & Highways",
             "Department of Water Resources","Ministry Of Power"};
 
-    private Button submitComplaintBtn,uploadImgBtn;
+    private Button submitComplaintBtn;
     private EditText fullName, mobileNo, address, description,city;
     private String spinnerOption;
     private TextView uploadTextView;
     private ProgressDialog progressDialogImg;
     private String imageUploadUri;
+    private ImageView uploadImgBtn;
 
     //database
     FirebaseAuth firebaseAuth;
@@ -149,8 +153,11 @@ public class NewComplaint extends AppCompatActivity implements AdapterView.OnIte
         uploadImgBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent openGallery = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                startActivityForResult(openGallery,1000);
+                //Intent openGallery = new Intent(Intent.ACTION_CAMERA_BUTTON, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+               //startActivityForResult(openGallery,1000);
+
+                Intent cameraIntent = new Intent("android.media.action.IMAGE_CAPTURE");
+                startActivityForResult(cameraIntent,2000);
             }
         });
 
@@ -161,18 +168,37 @@ public class NewComplaint extends AppCompatActivity implements AdapterView.OnIte
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if(requestCode == 1000)
+        if (requestCode == 2000)
         {
             if (resultCode == Activity.RESULT_OK)
             {
-                Uri imageUri = data.getData();
-                //profileImage.setImageURI(imageUri);
-                uploadTextView.setText("Image Selected");
-                saveImgToFirebase(imageUri);
+                //Uri imageUri = data.getData();
+                //uploadTextView.setText("Image Selected");
+                //Toast.makeText(this, data.getExtras().get("data")+"", Toast.LENGTH_SHORT).show();
+               // saveImgToFirebase(imageUri);
+
+
+                Bundle extras = data.getExtras();
+                Bitmap imageBitmap = (Bitmap) extras.get("data");
+                Uri tempUri = getImageUri(getApplicationContext(), imageBitmap);
+                if (tempUri != null)
+                {
+                    saveImgToFirebase(tempUri);
+                }
+
             }
         }
 
+
     }
+
+    public Uri getImageUri(Context inContext, Bitmap inImage) {
+        ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+        inImage.compress(Bitmap.CompressFormat.JPEG, 100, bytes);
+        String path = MediaStore.Images.Media.insertImage(inContext.getContentResolver(), inImage, "Title", null);
+        return Uri.parse(path);
+    }
+
 
     private void checkValidation() {
         progressDialogNewComplaint = new ProgressDialog(NewComplaint.this);
@@ -314,6 +340,7 @@ public class NewComplaint extends AppCompatActivity implements AdapterView.OnIte
                         //when image get uploaded then toast will occurs
                         imageUploadUri = uri.toString();
                         Toast.makeText(NewComplaint.this, "Image Uploaded!", Toast.LENGTH_LONG).show();
+                        uploadTextView.setText("Image Selected");
                     }
                 });
 
