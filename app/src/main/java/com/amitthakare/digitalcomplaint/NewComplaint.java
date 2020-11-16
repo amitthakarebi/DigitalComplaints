@@ -3,11 +3,14 @@ package com.amitthakare.digitalcomplaint;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
+import android.Manifest;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
@@ -156,8 +159,14 @@ public class NewComplaint extends AppCompatActivity implements AdapterView.OnIte
                 //Intent openGallery = new Intent(Intent.ACTION_CAMERA_BUTTON, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
                //startActivityForResult(openGallery,1000);
 
-                Intent cameraIntent = new Intent("android.media.action.IMAGE_CAPTURE");
-                startActivityForResult(cameraIntent,2000);
+                if (ActivityCompat.checkSelfPermission(NewComplaint.this, Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED)
+                {
+                    Intent cameraIntent = new Intent("android.media.action.IMAGE_CAPTURE");
+                    startActivityForResult(cameraIntent,2000);
+                }else
+                {
+                    ActivityCompat.requestPermissions(NewComplaint.this,new String[]{Manifest.permission.CAMERA},100);
+                }
             }
         });
 
