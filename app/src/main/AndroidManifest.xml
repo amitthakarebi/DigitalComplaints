@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.amitthakare.digitalcomplaint">
 
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
@@ -73,6 +74,18 @@
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
+
+        <provider
+            android:authorities="com.amitthakare.digitalcomplaint"
+            android:name="androidx.core.content.FileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+        <meta-data
+            android:name="android.support.FILE_PROVIDER_PATHS"
+            android:resource="@xml/filepaths"
+            tools:replace="android:resource" />
+        </provider>
+
     </application>
 
 </manifest>

@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
+import androidx.core.content.FileProvider;
 
 import android.Manifest;
 import android.app.Activity;
@@ -12,8 +13,16 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.ImageDecoder;
+import android.graphics.Paint;
+import android.graphics.Typeface;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
 import android.provider.MediaStore;
 import android.text.TextUtils;
 import android.view.View;
@@ -44,6 +53,8 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
 import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -70,6 +81,8 @@ public class NewComplaint extends AppCompatActivity implements AdapterView.OnIte
     FirebaseDatabase firebaseDatabase;
 
     private ProgressDialog progressDialogNewComplaint;
+
+    private String currentPhotoPath;
 
 
 
@@ -161,8 +174,28 @@ public class NewComplaint extends AppCompatActivity implements AdapterView.OnIte
 
                 if (ActivityCompat.checkSelfPermission(NewComplaint.this, Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED)
                 {
-                    Intent cameraIntent = new Intent("android.media.action.IMAGE_CAPTURE");
-                    startActivityForResult(cameraIntent,2000);
+                    //Intent cameraIntent = new Intent("android.media.action.IMAGE_CAPTURE");
+                    //Intent cameraIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+                    //Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                    //startActivityForResult(cameraIntent,2000);
+
+
+                    try {
+                        String fileName = "photo";
+                        File storageDirectory = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
+                        File imageFile = File.createTempFile(fileName,".jpg",storageDirectory);
+                        currentPhotoPath = imageFile.getAbsolutePath();
+
+                        Uri imageUri = FileProvider.getUriForFile(NewComplaint.this,"com.amitthakare.digitalcomplaint",imageFile);
+
+                        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                        intent.putExtra(MediaStore.EXTRA_OUTPUT,imageUri);
+                        startActivityForResult(intent,2000);
+
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+
                 }else
                 {
                     ActivityCompat.requestPermissions(NewComplaint.this,new String[]{Manifest.permission.CAMERA},100);
@@ -187,8 +220,35 @@ public class NewComplaint extends AppCompatActivity implements AdapterView.OnIte
                // saveImgToFirebase(imageUri);
 
 
-                Bundle extras = data.getExtras();
-                Bitmap imageBitmap = (Bitmap) extras.get("data");
+                //Bundle extras = data.getExtras();
+                //Bitmap imageBitmap = (Bitmap) extras.get("data");
+
+                //Toast.makeText(this, data.getData()+"", Toast.LENGTH_SHORT).show();
+                //Bitmap bitmap = getBitmapByUri(data.getData());
+                //Bitmap imageBitmap = bitmap.copy(bitmap.getConfig(),true);
+
+                Bitmap bitmap = BitmapFactory.decodeFile(currentPhotoPath);
+                Bitmap imageBitmap = bitmap.copy(bitmap.getConfig(),true);
+
+
+
+                //trying to add text
+                Paint myPaint = new Paint();
+                myPaint.setTextAlign(Paint.Align.RIGHT);
+                myPaint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.BOLD));
+                myPaint.setTextSize(30);
+                myPaint.setColor(Color.GREEN);
+
+                //Bitmap newBitmap = imageBitmap.copy(Bitmap.Config.RGB_565,true);
+
+                //Bitmap newBitmap = Bitmap.createBitmap(imageBitmap.getWidth(),imageBitmap.getHeight(),imageBitmap.getConfig());;
+
+
+                Canvas canvas = new Canvas(imageBitmap);
+                canvas.drawText("Yavatmal",imageBitmap.getWidth()-imageBitmap.getWidth()/8.0f,imageBitmap.getHeight()-imageBitmap.getHeight()/8.0f,myPaint);
+                canvas.drawText("10/01/10 - 22 : 25",imageBitmap.getWidth()-imageBitmap.getWidth()/16.0f,imageBitmap.getHeight()-imageBitmap.getHeight()/16.0f,myPaint);
+
+
                 Uri tempUri = getImageUri(getApplicationContext(), imageBitmap);
                 if (tempUri != null)
                 {
@@ -199,6 +259,26 @@ public class NewComplaint extends AppCompatActivity implements AdapterView.OnIte
         }
 
 
+    }
+
+    private Bitmap getBitmapByUri(Uri uri) {
+
+        Bitmap bitmap = null;
+        if (Build.VERSION.SDK_INT >= 29) {
+            ImageDecoder.Source source = ImageDecoder.createSource(getApplicationContext().getContentResolver(), uri);
+            try {
+                bitmap = ImageDecoder.decodeBitmap(source);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else {
+            try {
+                bitmap = MediaStore.Images.Media.getBitmap(getApplicationContext().getContentResolver(), uri);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        return bitmap;
     }
 
     public Uri getImageUri(Context inContext, Bitmap inImage) {
