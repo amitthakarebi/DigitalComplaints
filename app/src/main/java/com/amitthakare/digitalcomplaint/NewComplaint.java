@@ -25,6 +25,7 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -55,6 +56,8 @@ import com.google.firebase.storage.UploadTask;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -232,6 +235,8 @@ public class NewComplaint extends AppCompatActivity implements AdapterView.OnIte
 
 
 
+
+
                 //trying to add text
                 Paint myPaint = new Paint();
                 myPaint.setTextAlign(Paint.Align.RIGHT);
@@ -239,20 +244,41 @@ public class NewComplaint extends AppCompatActivity implements AdapterView.OnIte
                 myPaint.setTextSize(30);
                 myPaint.setColor(Color.GREEN);
 
+                int h = imageBitmap.getHeight();
+                int w = imageBitmap.getWidth();
+                if (h>=4000 && w>=2000)
+                {
+                    imageBitmap = Bitmap.createScaledBitmap(imageBitmap,w/2,h/2,false);
+                    myPaint.setTextSize(60);
+
+                }else if(h>=3000 && w>=1500)
+                {
+                    imageBitmap = Bitmap.createScaledBitmap(imageBitmap,(int)(w/1.5),(int)(h/1.5),false);
+                    myPaint.setTextSize(35);
+
+                }else if (h>=2000 && w>=1200)
+                {
+                    imageBitmap = Bitmap.createScaledBitmap(imageBitmap,(int)(w/1.2),(int)(h/1.2),false);
+                    myPaint.setTextSize(30);
+                }
+
                 //Bitmap newBitmap = imageBitmap.copy(Bitmap.Config.RGB_565,true);
 
-                //Bitmap newBitmap = Bitmap.createBitmap(imageBitmap.getWidth(),imageBitmap.getHeight(),imageBitmap.getConfig());;
+                //Bitmap newBitmap = Bitmap.createBitmap(imageBitmap.getWidth(),imageBitmap.getHeight(),imageBitmap.getConfig());
+
+                String timeStamp = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss").format(new Date());
 
 
                 Canvas canvas = new Canvas(imageBitmap);
-                canvas.drawText("Yavatmal",imageBitmap.getWidth()-imageBitmap.getWidth()/8.0f,imageBitmap.getHeight()-imageBitmap.getHeight()/8.0f,myPaint);
-                canvas.drawText("10/01/10 - 22 : 25",imageBitmap.getWidth()-imageBitmap.getWidth()/16.0f,imageBitmap.getHeight()-imageBitmap.getHeight()/16.0f,myPaint);
+                canvas.drawText(Variables.LOCALITY,imageBitmap.getWidth()-imageBitmap.getWidth()/8.0f,imageBitmap.getHeight()-imageBitmap.getHeight()/8.0f,myPaint);
+                canvas.drawText(timeStamp,imageBitmap.getWidth()-imageBitmap.getWidth()/16.0f,imageBitmap.getHeight()-imageBitmap.getHeight()/16.0f,myPaint);
 
 
                 Uri tempUri = getImageUri(getApplicationContext(), imageBitmap);
                 if (tempUri != null)
                 {
                     saveImgToFirebase(tempUri);
+                    Log.e("Size:",imageBitmap.getHeight()+"  "+imageBitmap.getWidth());
                 }
 
             }

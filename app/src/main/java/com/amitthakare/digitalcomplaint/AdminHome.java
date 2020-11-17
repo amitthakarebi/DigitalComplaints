@@ -60,6 +60,7 @@ public class AdminHome extends AppCompatActivity {
 
 
 
+
         getDepartment();
         getComplaints();
 
@@ -108,7 +109,6 @@ public class AdminHome extends AppCompatActivity {
                     }
                     adminRecyclerAdapter= new AdminRecyclerAdapter(getApplicationContext(),adminListComplaints);
                     adminRecyclerView.setAdapter(adminRecyclerAdapter);
-
                 }
             }
 
