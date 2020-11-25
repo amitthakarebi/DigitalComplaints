@@ -107,11 +107,12 @@ public class NewComplaint extends AppCompatActivity implements AdapterView.OnIte
                     public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
                         if (value!=null)
                         {
+                            Toast.makeText(NewComplaint.this, "No null", Toast.LENGTH_SHORT).show();
                             fullName.setText(value.getString("Full_Name"));
                             mobileNo.setText(value.getString("Mobile_No"));
 
-                            fullName.setEnabled(false);
-                            mobileNo.setEnabled(false);
+                            //fullName.setEnabled(false);
+                            //mobileNo.setEnabled(false);
 
                             if (Variables.LOCALITY != null)
                             {
@@ -124,6 +125,12 @@ public class NewComplaint extends AppCompatActivity implements AdapterView.OnIte
                                 address.setText(Variables.ADDRESSLINE);
                             }
 
+                        }else
+                        {
+                            Toast.makeText(NewComplaint.this, "no data", Toast.LENGTH_SHORT).show();
+                            fullName.setEnabled(true);
+                            mobileNo.setEnabled(true);
+                            city.setEnabled(true);
                         }
                     }
                 });
