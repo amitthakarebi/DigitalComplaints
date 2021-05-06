@@ -15,6 +15,22 @@
       },
       "oauth_client": [
         {
+          "client_id": "688410863840-7749109afe7tf4o4h5bhkcl9ljveer2n.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.amitthakare.digitalcomplaint",
+            "certificate_hash": "f1f81f9881596559b33463d251aa165934e433a5"
+          }
+        },
+        {
+          "client_id": "688410863840-imcenjilm3c5arpfrgafqu43klbgc5u6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.amitthakare.digitalcomplaint",
+            "certificate_hash": "c85a7bcee71342728cb9993b88e7261df809ab68"
+          }
+        },
+        {
           "client_id": "688410863840-lqj4o6mcjo9d9grlauq3ec39qo5bq2sv.apps.googleusercontent.com",
           "client_type": 3
         }

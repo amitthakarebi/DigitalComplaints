@@ -33,7 +33,7 @@ public class AllComplaintAdapter extends RecyclerView.Adapter<AllComplaintAdapte
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(mContext).inflate(R.layout.complaint_format,parent,false);
+        View view = LayoutInflater.from(mContext).inflate(R.layout.complaint_format2,parent,false);
         return new MyViewHolder(view);
     }
 
