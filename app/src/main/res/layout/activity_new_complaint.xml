@@ -46,31 +46,49 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/toolbar">
 
-            <EditText
-                android:id="@+id/fullnameEditTextNC"
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
                 android:layout_marginTop="20dp"
-                android:inputType="textPersonName"
                 android:layout_marginEnd="20dp"
-                android:background="@drawable/edittext_back_simple"
-                android:hint="Full Name"
-                android:paddingStart="15dp"
-                android:textColor="@color/black" />
+                android:layout_marginStart="20dp"
+                app:endIconMode="clear_text">
 
-            <EditText
-                android:id="@+id/mobileEditTextNC"
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/fullnameEditTextNC"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableStart="@drawable/name_icon"
+                    android:drawablePadding="10dp"
+                    android:hint="Full Name"
+                    android:inputType="textPersonName"
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="20dp"
-                android:background="@drawable/edittext_back_simple"
-                android:hint="Mobile No"
-                android:paddingStart="15dp"
-                android:inputType="phone"
-                android:textColor="@color/black" />
+                android:layout_marginStart="20dp"
+                app:endIconMode="clear_text">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/mobileEditTextNC"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableStart="@drawable/mobile_icon"
+                    android:drawablePadding="10dp"
+                    android:hint="Mobile No"
+                    android:inputType="phone"
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
 
             <Spinner
                 android:id="@+id/toDepartmentSpinnerNC"
@@ -81,44 +99,71 @@
                 android:layout_marginEnd="20dp" />
 
 
-            <EditText
-                android:id="@+id/addressEditTextNC"
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
                 android:layout_marginTop="20dp"
-                android:inputType="textMultiLine"
                 android:layout_marginEnd="20dp"
-                android:background="@drawable/edittext_back_simple"
-                android:hint="Address ( Location )"
-                android:paddingStart="15dp"
-                android:textColor="@color/black" />
+                android:layout_marginStart="20dp"
+                app:endIconMode="clear_text">
 
-            <EditText
-                android:id="@+id/cityEditTextNC"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
-                android:inputType="text"
-                android:layout_marginEnd="20dp"
-                android:background="@drawable/edittext_back_simple"
-                android:hint="City"
-                android:paddingStart="15dp"
-                android:textColor="@color/black" />
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/addressEditTextNC"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableStart="@drawable/mobile_icon"
+                    android:drawablePadding="10dp"
+                    android:hint="Address (Location)"
+                    android:inputType="text"
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
 
-            <EditText
-                android:id="@+id/descriptionEditTextNC"
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="20dp"
-                android:background="@drawable/edittext_back_simple"
-                android:hint="Description"
-                android:inputType="textMultiLine"
-                android:paddingStart="15dp"
-                android:textColor="@color/black" />
+                android:layout_marginStart="20dp"
+                app:endIconMode="clear_text">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/cityEditTextNC"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableStart="@drawable/mobile_icon"
+                    android:drawablePadding="10dp"
+                    android:hint="City"
+                    android:inputType="text"
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginStart="20dp"
+                app:endIconMode="clear_text">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/descriptionEditTextNC"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableStart="@drawable/mobile_icon"
+                    android:drawablePadding="10dp"
+                    android:hint="Description"
+                    android:inputType="text"
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -155,7 +200,7 @@
                 android:background="@color/blue"
                 android:text="Submit Complaint"
                 android:textColor="@color/white"
-                android:textSize="24sp" />
+                android:textSize="18sp" />
 
 
         </LinearLayout>

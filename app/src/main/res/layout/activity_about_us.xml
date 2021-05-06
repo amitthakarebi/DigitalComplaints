@@ -36,10 +36,10 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:gravity="center"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:gravity="center"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar">
 
@@ -48,8 +48,8 @@
             android:layout_height="wrap_content"
             android:text="This application is made by :"
             android:textColor="@color/black"
-            android:textStyle="bold"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -57,15 +57,15 @@
             android:layout_marginTop="10dp"
             android:text="Amit Rajendra Thakare"
             android:textColor="@color/blue"
-            android:textSize="18sp"/>
+            android:textSize="18sp" />
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_marginTop="5dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
             android:text="Kalyani Jat"
             android:textColor="@color/blue"
-            android:textSize="18sp"/>
+            android:textSize="18sp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -73,7 +73,7 @@
             android:layout_marginTop="5dp"
             android:text="Kajal Lodha"
             android:textColor="@color/blue"
-            android:textSize="18sp"/>
+            android:textSize="18sp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -81,7 +81,7 @@
             android:layout_marginTop="5dp"
             android:text="Komal Jangid"
             android:textColor="@color/blue"
-            android:textSize="18sp"/>
+            android:textSize="18sp" />
 
     </LinearLayout>
 

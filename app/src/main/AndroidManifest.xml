@@ -21,7 +21,8 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".ForgetPassword"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
+            android:windowSoftInputMode="adjustPan"
+            android:theme="@style/EditTextTheme" />
         <activity
             android:name=".AboutUs"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
@@ -39,7 +40,8 @@
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity
             android:name=".AdminSectionLogin"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
+            android:windowSoftInputMode="adjustPan"
+            android:theme="@style/EditTextTheme" />
         <activity
             android:name=".AdminViewComplaint"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
@@ -57,10 +59,12 @@
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity
             android:name=".SignUp"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
+            android:windowSoftInputMode="adjustPan"
+            android:theme="@style/EditTextTheme" />
         <activity
             android:name=".MainActivity"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
+            android:windowSoftInputMode="adjustPan"
+            android:theme="@style/EditTextTheme" />
         <activity
             android:name=".SplashScreen"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">

@@ -44,18 +44,18 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="15dp"
             android:layout_marginTop="10dp"
             android:gravity="center"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:padding="15dp">
 
             <TextView
                 android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:paddingStart="15dp"
                 android:paddingEnd="15dp"
-                android:textColor="@color/black"
-                android:layout_height="wrap_content"
                 android:text="Police"
+                android:textColor="@color/black"
                 android:textSize="18sp" />
 
             <ImageView
@@ -71,18 +71,18 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="15dp"
             android:layout_marginTop="10dp"
             android:gravity="center"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:padding="15dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingStart="15dp"
-                android:textColor="@color/black"
                 android:paddingEnd="15dp"
                 android:text="Ambulance"
+                android:textColor="@color/black"
                 android:textSize="18sp" />
 
             <ImageView
@@ -99,25 +99,25 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:padding="15dp"
             android:gravity="center"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:padding="15dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingStart="15dp"
-                android:textColor="@color/black"
                 android:paddingEnd="15dp"
                 android:text="Fire and Rescue"
+                android:textColor="@color/black"
                 android:textSize="18sp" />
 
             <ImageView
                 android:id="@+id/callFire"
                 android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:paddingStart="15dp"
                 android:paddingEnd="15dp"
-                android:layout_height="wrap_content"
                 android:src="@drawable/mobile_icon" />
 
         </LinearLayout>
@@ -125,18 +125,18 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="15dp"
             android:layout_marginTop="10dp"
             android:gravity="center"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:padding="15dp">
 
             <TextView
                 android:layout_width="wrap_content"
-                android:paddingStart="15dp"
-                android:textColor="@color/black"
-                android:paddingEnd="15dp"
                 android:layout_height="wrap_content"
+                android:paddingStart="15dp"
+                android:paddingEnd="15dp"
                 android:text="Domestic abuse and Sexual Violence"
+                android:textColor="@color/black"
                 android:textSize="18sp" />
 
             <ImageView
@@ -148,29 +148,30 @@
                 android:src="@drawable/mobile_icon" />
 
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="15dp"
             android:layout_marginTop="10dp"
             android:gravity="center"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:padding="15dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingStart="15dp"
-                android:textColor="@color/black"
                 android:paddingEnd="15dp"
                 android:text="Suicide Crisis"
+                android:textColor="@color/black"
                 android:textSize="18sp" />
 
             <ImageView
                 android:id="@+id/callSuicide"
                 android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:paddingStart="15dp"
                 android:paddingEnd="15dp"
-                android:layout_height="wrap_content"
                 android:src="@drawable/mobile_icon" />
 
         </LinearLayout>
@@ -179,17 +180,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:padding="15dp"
             android:gravity="center"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:padding="15dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingStart="15dp"
                 android:paddingEnd="15dp"
-                android:textColor="@color/black"
                 android:text="Anti-Poison"
+                android:textColor="@color/black"
                 android:textSize="18sp" />
 
             <ImageView
@@ -206,17 +207,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:padding="15dp"
             android:gravity="center"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:padding="15dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingStart="15dp"
-                android:textColor="@color/black"
                 android:paddingEnd="15dp"
                 android:text="Damini Pathak"
+                android:textColor="@color/black"
                 android:textSize="18sp" />
 
             <ImageView
