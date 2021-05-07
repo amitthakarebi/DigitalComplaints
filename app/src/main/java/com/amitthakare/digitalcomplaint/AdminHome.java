@@ -10,6 +10,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Toast;
 
 import  com.amitthakare.digitalcomplaint.Adapter.AdminRecyclerAdapter;
@@ -35,6 +36,7 @@ public class AdminHome extends AppCompatActivity {
 
     private String department;
     private String fullName , mobileNo , location, city , description, image, status;
+    private String uid;
 
     FirebaseDatabase firebaseDatabase;
     FirebaseAuth firebaseAuth;
@@ -78,6 +80,7 @@ public class AdminHome extends AppCompatActivity {
                 {
                     for (DataSnapshot snap : snapshot.getChildren())
                     {
+                        Log.e("Data : ",snap.toString());
                         for (DataSnapshot snapshot1 : snap.getChildren())
                         {
                             String key = snapshot1.getKey();
