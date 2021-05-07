@@ -2,9 +2,9 @@ package com.amitthakare.digitalcomplaint.Model;
 
 public class AdminRecyclerInfo {
 
-    String complaintFullName, complaintMobileNo, complaintLocation, complaintDescription, complaintImage, complaintCity,complaintStatus;
+    String complaintFullName, complaintMobileNo, complaintLocation, complaintDescription, complaintImage, complaintCity,complaintStatus,uid;
 
-    public AdminRecyclerInfo(String complaintFullName, String complaintMobileNo, String complaintLocation, String complaintDescription, String complaintImage, String complaintCity, String complaintStatus) {
+    public AdminRecyclerInfo(String complaintFullName, String complaintMobileNo, String complaintLocation, String complaintDescription, String complaintImage, String complaintCity, String complaintStatus,String uid) {
         this.complaintFullName = complaintFullName;
         this.complaintMobileNo = complaintMobileNo;
         this.complaintLocation = complaintLocation;
@@ -12,6 +12,7 @@ public class AdminRecyclerInfo {
         this.complaintImage = complaintImage;
         this.complaintCity = complaintCity;
         this.complaintStatus = complaintStatus;
+        this.uid = uid;
     }
 
     public String getComplaintFullName() {
@@ -68,5 +69,13 @@ public class AdminRecyclerInfo {
 
     public void setComplaintStatus(String complaintStatus) {
         this.complaintStatus = complaintStatus;
+    }
+
+    public String getUid() {
+        return uid;
+    }
+
+    public void setUid(String uid) {
+        this.uid = uid;
     }
 }

@@ -57,8 +57,6 @@ public class MyComplaint extends AppCompatActivity {
 
     ImageView toolbarBack;
 
-    String myComplaintList[];
-    int myComplaintLength;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

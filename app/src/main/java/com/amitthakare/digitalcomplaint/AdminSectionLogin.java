@@ -68,8 +68,6 @@ public class AdminSectionLogin extends AppCompatActivity {
                 {
                     if (!TextUtils.isEmpty(adminPassword.getText().toString()))
                     {
-                        //getEmailAndDepartment();
-                        //adminSignIn();
                         if (emails.contains(adminEmail.getText().toString()))
                         {
                             int i = emails.indexOf(adminEmail.getText().toString());
@@ -80,15 +78,6 @@ public class AdminSectionLogin extends AppCompatActivity {
                             progressDialogSignInAdmin.dismiss();
                         }
 
-                        /*for (int i=0;i<childrenCount;i++)
-                        {
-                            if (!logged)
-                            {
-                                Toast.makeText(AdminSectionLogin.this, "loop", Toast.LENGTH_SHORT).show();
-                                adminSignIn2(emails.get(i),departments.get(i));
-                            }else
-                                break;
-                        }*/
 
                     }else
                     {
@@ -129,46 +118,6 @@ public class AdminSectionLogin extends AppCompatActivity {
 
             }
         });
-
-    }
-
-    private void adminSignIn() {
-
-        if (adminEmail.getText().toString().equals("kajallodha165@gmail.com") && adminPassword.getText().toString().equals("asdfasdf"))
-        {
-
-            Intent intent = new Intent(AdminSectionLogin.this,AdminHome.class);
-            intent.putExtra("department","Muncipal Council");
-            progressDialogSignInAdmin.dismiss();
-            startActivity(intent);
-            finish();
-
-            /*firebaseAuth.signInWithEmailAndPassword(adminEmail.getText().toString(),adminPassword.getText().toString())
-                    .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-                            if (task.isSuccessful())
-                            {
-
-                            }else
-                            {
-                                Toast.makeText(AdminSectionLogin.this, task.getException().getMessage()+"", Toast.LENGTH_SHORT).show();
-                            }
-                        }
-                    });*/
-
-        }else if (adminEmail.getText().toString().equals("kalyanijat41@gmail.com"))
-        {
-            Intent intent = new Intent(AdminSectionLogin.this,AdminHome.class);
-            intent.putExtra("department","Ministry Of Power");
-            progressDialogSignInAdmin.dismiss();
-            startActivity(intent);
-            finish();
-        }else
-        {
-            Toast.makeText(this, "Incorrect Details!", Toast.LENGTH_SHORT).show();
-            progressDialogSignInAdmin.dismiss();
-        }
 
     }
 

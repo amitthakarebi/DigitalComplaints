@@ -66,6 +66,7 @@ public class AdminRecyclerAdapter extends RecyclerView.Adapter<AdminRecyclerAdap
                 intent.putExtra("city",mData.get(position).getComplaintCity());
                 intent.putExtra("description",mData.get(position).getComplaintDescription());
                 intent.putExtra("status",mData.get(position).getComplaintStatus());
+                intent.putExtra("uid",mData.get(position).getUid());
                 mContext.startActivity(intent);
             }
         });

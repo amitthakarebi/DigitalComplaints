@@ -80,7 +80,7 @@ public class AdminHome extends AppCompatActivity {
                 {
                     for (DataSnapshot snap : snapshot.getChildren())
                     {
-                        Log.e("Data : ",snap.toString());
+                        uid = snap.getKey();
                         for (DataSnapshot snapshot1 : snap.getChildren())
                         {
                             String key = snapshot1.getKey();
@@ -107,7 +107,7 @@ public class AdminHome extends AppCompatActivity {
                                 status = String.valueOf(snapshot1.getValue());
                             }
                         }
-                        AdminRecyclerInfo adminRecyclerInfo = new AdminRecyclerInfo(fullName,mobileNo,location,description,image,city,status);
+                        AdminRecyclerInfo adminRecyclerInfo = new AdminRecyclerInfo(fullName,mobileNo,location,description,image,city,status,uid);
                         adminListComplaints.add(adminRecyclerInfo);
                     }
                     adminRecyclerAdapter= new AdminRecyclerAdapter(getApplicationContext(),adminListComplaints);
@@ -127,6 +127,7 @@ public class AdminHome extends AppCompatActivity {
 
         Intent intent = getIntent();
         department = intent.getStringExtra("department");
+        Variables.Department = department;
         Toast.makeText(this, department, Toast.LENGTH_SHORT).show();
     }
 

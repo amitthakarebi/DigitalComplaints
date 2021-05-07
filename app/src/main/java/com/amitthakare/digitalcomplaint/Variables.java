@@ -11,4 +11,8 @@ public class Variables {
     public static String ADDRESSLINE;
     public static String PINCODE;
 
+
+    //for admin
+    public static String Department;
+
 }
