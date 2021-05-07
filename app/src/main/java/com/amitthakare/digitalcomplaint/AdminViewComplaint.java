@@ -17,6 +17,9 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class AdminViewComplaint extends AppCompatActivity {
 
     private TextView vFullName, vMobileNo, vLocation, vCity, vDescription,vStatus;
@@ -88,7 +91,48 @@ public class AdminViewComplaint extends AppCompatActivity {
                         if (task.isSuccessful())
                         {
                             Toast.makeText(AdminViewComplaint.this, "Status Changed!", Toast.LENGTH_SHORT).show();
+                            status = newStatus;
                             vStatus.setText(newStatus);
+
+                            if (newStatus.equals("Completed"))
+                            {
+                                firebaseDatabase.getReference("Complaints").child(Variables.Department).child(uid)
+                                        .removeValue()
+                                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                            @Override
+                                            public void onComplete(@NonNull Task<Void> task) {
+                                                if (task.isSuccessful())
+                                                {
+                                                    int random_int = (int)(Math.random() * (999999999 - 1000000 + 1) + 1000000);
+
+                                                    Map<String,Object> complaintData = new HashMap<>();
+                                                    complaintData.put("Image",image);
+                                                    complaintData.put("Full_Name",fullName);
+                                                    complaintData.put("Mobile_No",mobileNo);
+                                                    complaintData.put("Department",Variables.Department);
+                                                    complaintData.put("Address",location);
+                                                    complaintData.put("City",city);
+                                                    complaintData.put("Description",description);
+                                                    complaintData.put("Status",newStatus);
+
+                                                    firebaseDatabase.getReference("Complaints").child("Completed").child(random_int+"").setValue(complaintData)
+                                                            .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                                @Override
+                                                                public void onComplete(@NonNull Task<Void> task) {
+                                                                    if (task.isSuccessful())
+                                                                    {
+                                                                        Toast.makeText(AdminViewComplaint.this, "Added To Completed!", Toast.LENGTH_SHORT).show();
+                                                                    }else
+                                                                    {
+                                                                        Toast.makeText(AdminViewComplaint.this, "error", Toast.LENGTH_SHORT).show();
+                                                                    }
+                                                                }
+                                                            });
+                                                }
+                                            }
+                                        });
+                            }
+
                         }else
                         {
                             Toast.makeText(AdminViewComplaint.this, "Error!", Toast.LENGTH_SHORT).show();

@@ -129,7 +129,7 @@ public class NewComplaint extends AppCompatActivity implements AdapterView.OnIte
 
                         }else
                         {
-                            Toast.makeText(NewComplaint.this, "no data", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(NewComplaint.this, "No Data!", Toast.LENGTH_SHORT).show();
                             fullName.setEnabled(true);
                             mobileNo.setEnabled(true);
                             city.setEnabled(true);
@@ -493,7 +493,7 @@ public class NewComplaint extends AppCompatActivity implements AdapterView.OnIte
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        Toast.makeText(this, departmentList[position], Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, departmentList[position], Toast.LENGTH_SHORT).show();
         spinnerOption = departmentList[position];
 
         firebaseDatabase.getReference("Complaints").child(spinnerOption)

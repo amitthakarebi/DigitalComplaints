@@ -46,6 +46,8 @@ public class AdminHome extends AppCompatActivity {
     RecyclerView adminRecyclerView;
     AdminRecyclerAdapter adminRecyclerAdapter;
 
+    String temp = "";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,9 +60,6 @@ public class AdminHome extends AppCompatActivity {
         adminRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(AdminHome.this, DividerItemDecoration.VERTICAL);
         adminRecyclerView.addItemDecoration(dividerItemDecoration);
-
-
-
 
 
         getDepartment();
@@ -202,4 +201,22 @@ public class AdminHome extends AppCompatActivity {
         alertDialog.show();
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (Variables.whereFrom.equals("Pause"))
+        {
+            Variables.whereFrom = "Resume";
+            adminListComplaints.clear();
+            adminRecyclerAdapter.notifyDataSetChanged();
+            getComplaints();
+
+        }
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Variables.whereFrom = "Pause";
+    }
 }

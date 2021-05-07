@@ -13,6 +13,11 @@ public class Variables {
 
 
     //for admin
-    public static String Department;
+    public static String Department = "";
+
+    //for recycler admin
+    public static String whereFrom = "";
+
+
 
 }
