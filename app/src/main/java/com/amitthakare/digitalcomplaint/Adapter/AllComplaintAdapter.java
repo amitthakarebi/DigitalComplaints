@@ -40,20 +40,13 @@ public class AllComplaintAdapter extends RecyclerView.Adapter<AllComplaintAdapte
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, final int position) {
 
-        String Name = "Full Name : "+mData.get(position).getComplaintFullName();
-        String Mobile = "Mobile No : "+mData.get(position).getComplaintMobileNo();
-        String Location = "Location : "+mData.get(position).getComplaintLocation();
-        String City = "City : "+mData.get(position).getComplaintCity();
-        String Description = "Description : "+mData.get(position).getComplaintDescription();
-        String Status = "Status : "+mData.get(position).getComplaintStatus();
-
         Glide.with(mContext).load(mData.get(position).getComplaintImage()).into(holder.complaintImg);
-        holder.name.setText(Name);
-        holder.mobile.setText(Mobile);
-        holder.location.setText(Location);
-        holder.city.setText(City);
-        holder.description.setText(Description);
-        holder.status.setText(Status);
+        holder.name.setText(mData.get(position).getComplaintFullName());
+        holder.mobile.setText(mData.get(position).getComplaintMobileNo());
+        holder.location.setText(mData.get(position).getComplaintLocation());
+        holder.city.setText(mData.get(position).getComplaintCity());
+        holder.description.setText(mData.get(position).getComplaintDescription());
+        holder.status.setText(mData.get(position).getComplaintStatus());
 
 
     }
