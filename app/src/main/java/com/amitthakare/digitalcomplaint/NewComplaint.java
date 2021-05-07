@@ -42,8 +42,11 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -71,7 +74,7 @@ public class NewComplaint extends AppCompatActivity implements AdapterView.OnIte
     private Button submitComplaintBtn;
     private EditText fullName, mobileNo, address, description,city;
     private String spinnerOption;
-    private TextView uploadTextView;
+    private TextView uploadTextView,alreadySubmitted;
     private ProgressDialog progressDialogImg;
     private String imageUploadUri;
     private ImageView uploadImgBtn;
@@ -107,7 +110,6 @@ public class NewComplaint extends AppCompatActivity implements AdapterView.OnIte
                     public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
                         if (value!=null)
                         {
-                            Toast.makeText(NewComplaint.this, "No null", Toast.LENGTH_SHORT).show();
                             fullName.setText(value.getString("Full_Name"));
                             mobileNo.setText(value.getString("Mobile_No"));
 
@@ -148,6 +150,10 @@ public class NewComplaint extends AppCompatActivity implements AdapterView.OnIte
         city = findViewById(R.id.cityEditTextNC);
         uploadTextView = findViewById(R.id.uploadTextView);
         uploadImgBtn = findViewById(R.id.uploadImgBtn);
+        alreadySubmitted = findViewById(R.id.textviewAlready);
+
+        uploadImgBtn.setClickable(false);
+        submitComplaintBtn.setClickable(false);
 
         firebaseAuth = FirebaseAuth.getInstance();
         firestore = FirebaseFirestore.getInstance();
@@ -489,6 +495,30 @@ public class NewComplaint extends AppCompatActivity implements AdapterView.OnIte
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         Toast.makeText(this, departmentList[position], Toast.LENGTH_SHORT).show();
         spinnerOption = departmentList[position];
+
+        firebaseDatabase.getReference("Complaints").child(spinnerOption)
+                .addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if (snapshot.hasChild(firebaseAuth.getUid()))
+                        {
+                            submitComplaintBtn.setClickable(false);
+                            uploadImgBtn.setClickable(false);
+                            alreadySubmitted.setVisibility(View.VISIBLE);
+                        }else
+                        {
+                            submitComplaintBtn.setClickable(true);
+                            uploadImgBtn.setClickable(true);
+                            alreadySubmitted.setVisibility(View.INVISIBLE);
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
     }
 
     @Override

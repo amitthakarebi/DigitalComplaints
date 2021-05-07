@@ -202,6 +202,17 @@
                 android:textColor="@color/white"
                 android:textSize="18sp" />
 
+            <TextView
+                android:id="@+id/textviewAlready"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:text="You already submitted one complaint\nin this department!"
+                android:textAlignment="center"
+                android:visibility="invisible"
+                android:layout_margin="20dp"
+                android:textColor="#F63636"/>
+
 
         </LinearLayout>
 
