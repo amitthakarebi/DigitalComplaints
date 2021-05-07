@@ -53,7 +53,7 @@
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity
             android:name=".NewComplaint"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
+            android:theme="@style/EditTextTheme" />
         <activity
             android:name=".Home"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
