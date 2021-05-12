@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import  com.amitthakare.digitalcomplaint.Adapter.AdminRecyclerAdapter;
@@ -37,6 +38,10 @@ public class AllComplaints extends AppCompatActivity {
 
     ImageView backToolbar;
 
+    TextView totalComplaint_tv;
+
+    private int countComplaint=0;
+
     List<AllComplaintRecyclerInfo> allListComplaint;
     RecyclerView allComplaintRecyclerView;
     AllComplaintAdapter allComplaintAdapter;
@@ -48,6 +53,8 @@ public class AllComplaints extends AppCompatActivity {
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseDatabase = FirebaseDatabase.getInstance();
         storageReference = FirebaseStorage.getInstance().getReference();
+
+        totalComplaint_tv = findViewById(R.id.totalComplaint_tv);
 
         backToolbar = findViewById(R.id.toolbar_back_all_complaint);
         backToolbar.setOnClickListener(new View.OnClickListener() {
@@ -106,10 +113,12 @@ public class AllComplaints extends AppCompatActivity {
                             }
                             AllComplaintRecyclerInfo allComplaintRecyclerInfo = new AllComplaintRecyclerInfo(fullName,mobileNo,location,description,image,city,status);
                             allListComplaint.add(allComplaintRecyclerInfo);
+                            countComplaint+=1;
                         }
                     }
                     allComplaintAdapter= new AllComplaintAdapter(getApplicationContext(),allListComplaint);
                     allComplaintRecyclerView.setAdapter(allComplaintAdapter);
+                    totalComplaint_tv.setText("Total Complaints : "+countComplaint);
                 }
             }
 

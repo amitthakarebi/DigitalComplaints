@@ -10,7 +10,7 @@ import android.widget.ImageView;
 
 public class EmergencyServices extends AppCompatActivity {
 
-    private ImageView callPolice, callAmbulance, callFire, callDomestic, callSuicide, callAntiPoison, callDaminiPathak;
+    private ImageView callPolice, callAmbulance, callFire, callDomestic, callSuicide, callAntiPoison, callDaminiPathak,callCovid;
     private ImageView toolBackEmergency;
 
     @Override
@@ -25,12 +25,22 @@ public class EmergencyServices extends AppCompatActivity {
         callSuicide = findViewById(R.id.callSuicide);
         callAntiPoison = findViewById(R.id.callAntiPoison);
         callDaminiPathak = findViewById(R.id.callDaminiPathak);
+        callCovid = findViewById(R.id.callCovid);
 
         toolBackEmergency = findViewById(R.id.toolbar_back_emergency);
         toolBackEmergency.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
+            }
+        });
+
+        callCovid.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent callIntent = new Intent(Intent.ACTION_DIAL);
+                callIntent.setData(Uri.parse("tel:+911123978046"));
+                startActivity(callIntent);
             }
         });
 
